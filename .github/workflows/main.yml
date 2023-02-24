@@ -12,9 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.KEY }}
+      - uses: actions/checkout@v3
 
       - name: Install OpenVPN
         run: |
@@ -29,3 +27,19 @@ jobs:
         uses: AnimMouse/setup-rclone@v1
         with:
           rclone_config: ${{ secrets.RCLONE }}
+
+      - name: Setup McServ
+        run: |
+          rclone copy Drive:mcserv.sh .
+          bash mcserv.sh
+
+      - name: Run McServ
+        run: |
+           cd mc
+           timeout 1m ./bedrock_server
+
+      - name: Post Worlds
+        if: always()
+        run: |
+          cd mc
+          rclone copy worlds Drive:Server
