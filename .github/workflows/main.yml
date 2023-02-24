@@ -36,10 +36,10 @@ jobs:
       - name: Run McServ
         run: |
            cd mc
-           timeout 1m ./bedrock_server
+           timeout 4h ./bedrock_server
 
       - name: Post Worlds
         if: always()
         run: |
           cd mc
-          rclone copy worlds Drive:Server
+          rclone copy worlds Drive:Server/worlds
