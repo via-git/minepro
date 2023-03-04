@@ -21,6 +21,7 @@ jobs:
         run: |
           rclone copy Drive:playit .
           rclone copy Drive:playit.toml .
+          chmod 777 playit
           nohup ./playit &
 
       - name: Setup McServ
