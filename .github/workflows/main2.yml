@@ -24,7 +24,9 @@ jobs:
         with:
           rclone_config: ${{ secrets.RCLONE }}
 
-      - name: Setup McServ
+      - name: Setup 
         run: |
           rclone copy playint.txt Drive:
+          sleep 300
+          rclone copy playit.toml Drive:
 
