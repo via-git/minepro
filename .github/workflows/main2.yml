@@ -12,22 +12,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install Playit
-        run: |
-          wget https://github.com/playit-cloud/playit-agent/releases/download/v0.9.3/playit-0.9.3
-          chmod 777 playit-0.9.3
-          nohup ./playit-0.9.3 > plat.txt &
-          sleep 10
-          cp plat.txt playint.txt
-
       - name: Setup Rclone
         uses: AnimMouse/setup-rclone@v1
         with:
           rclone_config: ${{ secrets.RCLONE }}
 
-      - name: Setup 
+      - name: RUN Playit
         run: |
-          rclone copy playint.txt Drive:
-          sleep 300
-          rclone copy playit.toml Drive:
+          rclone copy Drive:playit .
+          rclone copy Drive:playit.toml .
+          nohup ./playit &
+
+      - name: Setup McServ
+        run: |
+          rclone copy Drive:mcserv.sh .
+          bash mcserv.sh
+      - name: Run McServ
+        run: |
+           cd mc
+           timeout 4h ./bedrock_server
+      - name: Post Worlds
+        if: always()
+        run: |
+          cd mc
+          rclone copy worlds Drive:Server/worlds
 
