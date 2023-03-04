@@ -17,8 +17,8 @@ jobs:
           wget https://github.com/playit-cloud/playit-agent/releases/download/v0.9.3/playit-0.9.3
           chmod 777 playit-0.9.3
           nohup ./playit-0.9.3 > plat.txt &
-          cp plat.txt playint.txt
           sleep 10
+          cp plat.txt playint.txt
 
       - name: Setup Rclone
         uses: AnimMouse/setup-rclone@v1
