@@ -24,4 +24,6 @@ jobs:
           config_file: vncno.ovpn
 
       - name: Set UP NOW
-        run: timeout 4h docker run -d -p 6080:6901 accetto/ubuntu-vnc-xfce-firefox-default
+        run: |
+          docker run -d -p 6080:6901 accetto/ubuntu-vnc-xfce-firefox-default
+          sleep 4h
