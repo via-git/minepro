@@ -1,0 +1,27 @@
+name: McPro
+
+on:
+  workflow_dispatch:
+#  schedule:
+#    - cron: '0 */6 * * *'
+#  push:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install OpenVPN
+        run: |
+          sudo apt update
+          sudo apt install -y openvpn openvpn-systemd-resolved
+      - name: Connect to VPN
+        uses: "kota65535/github-openvpn-connect-action@v2"
+        with:
+          config_file: vncno.ovpn
+
+      - name: Set UP NOW
+        run: timeout 4h docker run -d -p 6080:6901 accetto/ubuntu-vnc-xfce-firefox-default
