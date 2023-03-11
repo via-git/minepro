@@ -1,4 +1,4 @@
-name: McPro
+name: NoVnc
 
 on:
   workflow_dispatch:
