@@ -25,5 +25,5 @@ jobs:
 
       - name: Set UP NOW
         run: |
-          docker run --rm --name novnc -p 6080:6080 -e AUTOCONNECT=true -e VNC_PASSWORD=selenoid -e VNC_SERVER=172.17.0.1:5900 -e VIEW_ONLY=false bonigarcia/novnc:1.1.0
+          docker run -d -p 6080:6080 yangxuan8282/alpine-xfce4-novnc:amd64
           sleep 4h
