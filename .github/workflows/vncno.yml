@@ -26,5 +26,5 @@ jobs:
       - name: Set UP NOW
         run: |
           docker run -p 6080:80 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc > /dev/null &
-          #docker run -d -p 6080:6901 accetto/ubuntu-vnc-xfce-firefox-default
+#          docker run -d -p 6080:6901 accetto/ubuntu-vnc-xfce-firefox-default
           sleep 4h
