@@ -1,4 +1,4 @@
-name: NoVnc
+Iname: NoVnc
 
 on:
   workflow_dispatch:
@@ -25,5 +25,5 @@ jobs:
 
       - name: Set UP NOW
         run: |
-          docker run -d -p 6080:6080 yangxuan8282/alpine-xfce4-novnc:amd64
+          docker run -d -p 6080:6901 accetto/ubuntu-vnc-xfce
           sleep 4h
