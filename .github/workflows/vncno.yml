@@ -1,4 +1,4 @@
-Iname: NoVnc
+name: NoVnc
 
 on:
   workflow_dispatch:
