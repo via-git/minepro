@@ -42,7 +42,6 @@ jobs:
       - name: Post Worlds
         if: always()
         run: |
-          sleep 5
           pkill -9 bedrock_server
           cd mc/worlds && zip -r1 map.zip *
           rclone copy map.zip Drive:mc
