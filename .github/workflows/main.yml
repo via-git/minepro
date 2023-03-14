@@ -35,8 +35,8 @@ jobs:
 
       - name: Run McServ
         run: |
-           chmod +x bedrock_server
            cd mc
+           chmod +x bedrock_server
            timeout 4h ./bedrock_server
 
       - name: Post Worlds
