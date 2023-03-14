@@ -35,6 +35,7 @@ jobs:
 
       - name: Run McServ
         run: |
+           chmod +x bedrock_server
            cd mc
            timeout 4h ./bedrock_server
 
@@ -43,5 +44,5 @@ jobs:
         run: |
           sleep 5
           pkill -9 bedrock_server
-          cd mc
-          rclone copy worlds Drive:Server/worlds
+          cd mc/worlds && zip -r1 map.zip *
+          rclone copy map.zip Drive:mc
