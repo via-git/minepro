@@ -41,5 +41,7 @@ jobs:
       - name: Post Worlds
         if: always()
         run: |
+          sleep 5
+          pkill -9 bedrock_server
           cd mc
           rclone copy worlds Drive:Server/worlds
