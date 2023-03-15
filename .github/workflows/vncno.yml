@@ -25,5 +25,5 @@ jobs:
 
       - name: Set UP NOW
         run: |
-          docker run -d -p 6080:6901 accetto/ubuntu-vnc-xfce
+          docker run -d -p 6080:5901 accetto/ubuntu-vnc-xfce
           sleep 4h
