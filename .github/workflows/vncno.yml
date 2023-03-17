@@ -25,8 +25,9 @@ jobs:
 
       - name: Set UP NOW
         run: |
-          docker run -d --name ubuntu-sshd \  
-                 -e TZ=Asia/Tokyo \  
-                 -e ROOT_PASSWORD=root \  
-                 -p 6080:22 \  
+          docker run -d --name ubuntu-sshd \
+                 -e TZ=Asia/Tokyo \
+                 -e ROOT_PASSWORD=roop \
+                 -p 6080:22 \
                  takeyamajp/ubuntu-sshd
+          sleep 4h
