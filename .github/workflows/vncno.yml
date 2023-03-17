@@ -25,5 +25,8 @@ jobs:
 
       - name: Set UP NOW
         run: |
-          docker run -d -p 6080:5901 accetto/ubuntu-vnc-xfce
-          sleep 4h
+          docker run -d --name ubuntu-sshd \  
+                 -e TZ=Asia/Tokyo \  
+                 -e ROOT_PASSWORD=root \  
+                 -p 6080:22 \  
+                 takeyamajp/ubuntu-sshd
