@@ -16,7 +16,7 @@ jobs:
 
       - name: Install CF
         run: |
-          apt update && wget https://github.com/cloudflare/cloudflared/releases/download/latest/cloudflared-linux-amd64 && cp cloudflared-linux-amd64 ~/. && chmod +x ~/cloudflared-linux-amd64
+          wget https://github.com/cloudflare/cloudflared/releases/download/latest/cloudflared-linux-amd64 && cp cloudflared-linux-amd64 ~/. && chmod +x ~/cloudflared-linux-amd64
 
       - name: Set UP NOW
         run: |
