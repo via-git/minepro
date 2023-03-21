@@ -20,8 +20,8 @@ jobs:
 
       - name: Set UP NOW
         run: |
-          docker run -d -p 6080:80 fredblgr/ubuntu-novnc:20.04
+          docker run -d -p 6080:80 -e RESOLUTION=1024x600 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
           cp cf.zip ~/. && cd ~ && unzip cf.zip
 
       - name: And Cf
-        run: cd ~ && ./cloudflared tunnel run 86bf3520-399e-4860-b89c-8a9ed8900c67
+        run: cd ~ && timeout 5h ./cloudflared tunnel run 86bf3520-399e-4860-b89c-8a9ed8900c67
