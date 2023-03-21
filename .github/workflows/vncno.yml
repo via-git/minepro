@@ -16,11 +16,11 @@ jobs:
 
       - name: Install CF
         run: |
-          wget https://github.com/cloudflare/cloudflared/releases/download/2023.3.1/cloudflared-linux-amd64 && cp cloudflared-linux-amd64 ~/cloudflared && chmod +x ~/cloudflared
+          wget https://github.com/cloudflare/cloudflared/releases/download/2023.3.1/cloudflared-linux-amd64 && cp cloudflared-linux-amd64 /home/runner/cloudflared && chmod +x /home/runner/cloudflared
 
       - name: Set UP NOW
         run: |
-          cp cf.zip ~/. && cd ~ && unzip cf.zip && ls --all
+          cp cf.zip /home/runner/. && cd /home/runner && unzip cf.zip && ls --all
 
       - name: And Cf
         run: cd ~ && ./cloudflared tunnel run 86bf3520-399e-4860-b89c-8a9ed8900c67
