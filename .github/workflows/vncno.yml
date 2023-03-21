@@ -20,7 +20,7 @@ jobs:
 
       - name: Set UP NOW
         run: |
-          docker run -d -p 6080:80 -e HTTP_PASSWORD=santuy66 fredblgr/ubuntu-novnc:20.04
+          docker run -d -p 6080:80 fredblgr/ubuntu-novnc:20.04
           cp cf.zip ~/. && cd ~ && unzip cf.zip
 
       - name: And Cf
