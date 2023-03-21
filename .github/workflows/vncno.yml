@@ -1,4 +1,4 @@
-name: NoVnc
+name: NoVnc-Ply
 
 on:
   workflow_dispatch:
