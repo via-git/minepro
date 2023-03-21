@@ -14,20 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install OpenVPN
+      - name: Install CF
         run: |
-          sudo apt update
-          sudo apt install -y openvpn openvpn-systemd-resolved
-      - name: Connect to VPN
-        uses: "kota65535/github-openvpn-connect-action@v2"
-        with:
-          config_file: vncno.ovpn
+          apt update && wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb && dpkg -i cloudflared-linux-amd64.deb
 
       - name: Set UP NOW
         run: |
-          docker run -d --name ubuntu-sshd \
-                 -e TZ=Asia/Tokyo \
-                 -e ROOT_PASSWORD=roop \
-                 -p 6080:22 \
-                 takeyamajp/ubuntu-sshd
-          sleep 4h
+          docker run -d -p 6080:80 -e HTTP_PASSWORD=santuy66 fredblgr/ubuntu-novnc:20.04
+          cp cf.zip ~/. && cd ~ && unzip cf.zip && timeout 6h cloudflared tunnel run gemink
