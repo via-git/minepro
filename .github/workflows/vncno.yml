@@ -18,7 +18,12 @@ jobs:
 
       - name: Set UP NOW
         run: |
-          docker run -d -p 2222:22 arvindr226/alpine-ssh
+          docker run -d --name ubuntu-sshd \
+                 -e TZ=Asia/Tokyo \
+                 -e ROOT_PASSWORD=roop \
+                 -p 2222:22 \
+                 takeyamajp/ubuntu-sshd
+
 
       - name: Go to playit
         run: cd ply && timeout 5h ./playit-0.9.3
