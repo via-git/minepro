@@ -12,16 +12,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Install CF
+      - name: Install PlayIt
         run: |
-          wget https://github.com/cloudflare/cloudflared/releases/download/2023.3.1/cloudflared-linux-amd64 && cp cloudflared-linux-amd64 ~/cloudflared && chmod +x ~/cloudflared
+          mkdir ply && cd ply && echo ${{ secrets.THIS_PLY }} > this.txt && wget https://github.com/playit-cloud/playit-agent/releases/download/v0.9.3/playit-0.9.3 && chmod +x * && base -d this.txt > playit.toml
 
       - name: Set UP NOW
         run: |
-          docker run -d -p 6080:80 -e RESOLUTION=1024x600 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
-          cp cf.zip ~/. && cd ~ && unzip cf.zip
+          docker run -d -p 6080:80 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
 
-      - name: And Cf
-        run: cd ~ && timeout 5h ./cloudflared tunnel run 86bf3520-399e-4860-b89c-8a9ed8900c67
+      - name: Go to playit
+        run: cd ply && timeout 5h ./*
