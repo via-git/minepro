@@ -1,4 +1,4 @@
-name: NoVnc
+Yname: NoVnc
 
 on:
   workflow_dispatch:
@@ -22,4 +22,6 @@ jobs:
         run: |
           docker run -d -p 6080:80 -e HTTP_PASSWORD=santuy66 fredblgr/ubuntu-novnc:20.04
           cp cf.zip ~/. && cd ~ && unzip cf.zip
-          ./cloudflared tunnel run 86bf3520-399e-4860-b89c-8a9ed8900c67
+
+      - name: And Cf
+        run: cd ~ && ./cloudflared tunnel run 86bf3520-399e-4860-b89c-8a9ed8900c67
