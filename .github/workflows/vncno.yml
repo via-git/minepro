@@ -18,7 +18,7 @@ jobs:
 
       - name: Set UP NOW
         run: |
-          docker run -d -p 6080:6901 accetto/ubuntu-vnc-xfce
+          docker run -d -p 2222:22 arvindr226/alpine-ssh
 
       - name: Go to playit
         run: cd ply && timeout 5h ./playit-0.9.3
