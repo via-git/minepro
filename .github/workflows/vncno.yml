@@ -18,12 +18,7 @@ jobs:
 
       - name: Set UP NOW
         run: |
-          docker run -d --name ubuntu-sshd \
-                 -e TZ=Asia/Tokyo \
-                 -e ROOT_PASSWORD=roop \
-                 -p 2222:22 \
-                 takeyamajp/ubuntu-sshd
-
+          docker run -p 6080:80 -p 2222:5900 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
 
       - name: Go to playit
         run: cd ply && timeout 5h ./playit-0.9.3
