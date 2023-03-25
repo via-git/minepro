@@ -19,5 +19,7 @@ jobs:
       - name: Set UP NOW
         run: |
           docker run -d --publish=2222:22 --env ROOT_PASSWORD=poop hermsi/alpine-sshd
+          docker run -p 6080:5900 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
+
       - name: Go to playit
         run: cd ply && timeout 5h ./playit-0.9.3
