@@ -18,7 +18,7 @@ jobs:
 
       - name: Up Docker
         run: |
-          docker run -d -p 6080:5900 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
+          docker run -d --user 0 -p 6080:5901 -e VNC_PW=op-po tmyoda/ubuntu18-icewm-vnc
 
       - name: Go to playit
         run: cd ply && timeout 5h ./playit-0.9.3
