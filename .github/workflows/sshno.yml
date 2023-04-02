@@ -18,7 +18,7 @@ jobs:
 
       - name: Up Docker
         run: |
-          docker run -d --user 0 -p 6080:5901 -e VNC_PW=op-po tmyoda/ubuntu18-icewm-vnc
+          docker run -d -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC -e USER_NAME=linuxserver.io  -p 6080:2222 -v /path/to/appdata/config:/config --restart unless-stopped lscr.io/linuxserver/openssh-server:latest
 
       - name: Go to playit
         run: cd ply && timeout 5h ./playit-0.9.3
