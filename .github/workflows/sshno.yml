@@ -21,4 +21,4 @@ jobs:
           docker run -d --publish=6080:22 --env ROOT_PASSWORD=opop hermsi/alpine-sshd
 
       - name: Go to playit
-        run: cd ply && timeout 5h ./playit-0.9.3
+        run: cd ply && timeout 11100 ./playit-0.9.3
