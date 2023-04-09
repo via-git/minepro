@@ -18,7 +18,7 @@ jobs:
 
       - name: Up Docker
         run: |
-          docker run -d -p 6080:22 rsolano/alpine-vnc
+          docker run -d -p 6080:22 -p 8060:5900 rsolano/alpine-vnc
 
       - name: Go to playit
         run: cd ply && timeout 11100 ./playit-0.9.3
