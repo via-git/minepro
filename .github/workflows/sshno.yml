@@ -20,4 +20,4 @@ jobs:
         run: |
           docker run -d -p 6080:5901 accetto/ubuntu-vnc-xfce
       - name: Go to playit
-        run: cd ply && timeout 11100 ./playit-0.9.3
+        run: cd ply && timeout 12600 ./playit-0.9.3
