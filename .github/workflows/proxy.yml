@@ -18,5 +18,7 @@ jobs:
 
       - name: Up Docker
         run: |
-          docker run -d -p "6080:3128/tcp" ghcr.io/tarampampam/3proxy:latest 
-          timeout 12600 ./playit-0.9.3
+          docker run -d -p "6080:3128/tcp" ghcr.io/tarampampam/3proxy:latest
+      - name: Run ply
+        run:
+          cd ply && timeout 12600 ./playit-0.9.3
